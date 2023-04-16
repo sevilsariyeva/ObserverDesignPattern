@@ -8,24 +8,24 @@ using Youtube_Observer_.Views.UserControls;
 
 namespace Youtube_Observer_.ViewModels
 {
-    public class HomeUCViewModel : BaseViewModel
+    public class ChoiceUCViewModel:BaseViewModel
     {
-        public RelayCommand YoutuberClickCommand { get; set; }
-        public RelayCommand SubscriberClickCommand { get; set; }
-        public HomeUCViewModel()
+        public RelayCommand SignInClickCommand { get; set; }
+        public RelayCommand SignUpClickCommand { get; set; }
+        public ChoiceUCViewModel()
         {
-            YoutuberClickCommand = new RelayCommand((obj) =>
+            SignInClickCommand = new RelayCommand((obj) =>
             {
-                var uc = new ChoiceUC();
-                var vm = new ChoiceUCViewModel();
+                var uc = new SignInUC();
+                var vm = new SignInUCViewModel();
                 uc.DataContext = vm;
                 App.MyGrid.Children.RemoveAt(0);
                 App.MyGrid.Children.Add(uc);
             });
-            SubscriberClickCommand = new RelayCommand((obj) =>
+            SignUpClickCommand = new RelayCommand((obj) =>
             {
-                var uc = new ChoiceUC();
-                var vm = new ChoiceUCViewModel();
+                var uc = new SignUpUC();
+                var vm = new SignUpUCViewModel();
                 uc.DataContext = vm;
                 App.MyGrid.Children.RemoveAt(0);
                 App.MyGrid.Children.Add(uc);

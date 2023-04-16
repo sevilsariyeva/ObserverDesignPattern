@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Youtube_Observer_.Views.UserControls.HomeUC"
+﻿<UserControl x:Class="Youtube_Observer_.Views.UserControls.ChoiceUC"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -16,7 +16,7 @@
         <Button Style="{StaticResource allButtons}" BorderThickness="0" Background="Transparent" Width="350" Height="150" Margin="0,0,0,150">
             <Image Stretch="Fill" Source="/Icons/youtube.png"></Image>
         </Button>
-        <Button Style="{StaticResource mainButtons}" Command="{Binding YoutuberClickCommand}" Width="250" Height="80" Margin="147,326,453,74" Content="Youtuber"></Button>
-        <Button Style="{StaticResource mainButtons}" Command="{Binding SubscriberClickCommand}" Width="250" Height="80" Margin="475,326,125,74" Content="Subscriber"></Button>
+        <Button Style="{StaticResource mainButtons}" Command="{Binding SignInClickCommand}" Width="250" Height="80" Margin="147,326,453,74" Content="Sign In"></Button>
+        <Button Style="{StaticResource mainButtons}" Command="{Binding SignUpClickCommand}" Width="250" Height="80" Margin="475,326,125,74" Content="Sign Up"></Button>
     </Grid>
 </UserControl>

@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="Youtube_Observer_.Views.UserControls.SignUpUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Youtube_Observer_.Views.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="DarkSlateGray" Offset="0"></GradientStop>
+                <GradientStop Color="Black" Offset="1"></GradientStop>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Button Style="{StaticResource allButtons}" BorderThickness="0" Background="Transparent" Width="350" Height="150" Margin="0,0,0,150">
+            <Image Stretch="Fill" Source="/Icons/youtube.png"></Image>
+        </Button>
+        <Label Width="70" Height="30" Foreground="White" FontWeight="DemiBold" FontSize="18" Content="Name" Margin="88,218,642,202"></Label>
+        <Label Width="90" Height="30" Foreground="White" FontWeight="DemiBold" FontSize="18" Content="Surname" Margin="86,303,624,117"></Label>
+        <Label Width="70" Height="30" Foreground="White" FontWeight="DemiBold" FontSize="18" Content="Email" Margin="490,223,240,197"></Label>
+        <Label Width="90" Height="30" Foreground="White" FontWeight="DemiBold" FontSize="18" Content="Password" Margin="490,303,220,117"></Label>
+        <TextBox Text="{Binding Name}" Background="LightGray" FontSize="20" FontWeight="DemiBold" Width="300" Height="50" Margin="86,253,414,147"></TextBox>
+        <TextBox Text="{Binding Surname}" Background="LightGray" FontSize="20" FontWeight="DemiBold" Width="300" Height="50" Margin="86,337,414,63"></TextBox>
+        <TextBox Text="{Binding Email}" Background="LightGray" FontSize="20" FontWeight="DemiBold" Width="300" Height="50" Margin="490,253,10,147"></TextBox>
+        <TextBox Text="{Binding Password}" Background="LightGray" FontSize="20" FontWeight="DemiBold" Width="300" Height="50" Margin="490,337,10,63"></TextBox>
+        <Button Style="{StaticResource allButtons}" Command="{Binding SubmitClickCommand}" Width="100" Height="40" FontSize="18" FontWeight="DemiBold" Background="Goldenrod" Content="Submit" Margin="690,423,10,-13" ></Button>
+        <Button Style="{StaticResource allButtons}" Command="{Binding SignInClickCommand}" Width="180" Height="40" FontSize="18" FontWeight="DemiBold" Background="Red" Content="Back to Sign In Page" Margin="491,423,129,-13" ></Button>
+    </Grid>
+</UserControl>

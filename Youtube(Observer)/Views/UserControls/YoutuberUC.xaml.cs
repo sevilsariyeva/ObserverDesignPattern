@@ -16,15 +16,13 @@ using System.Windows.Shapes;
 namespace Youtube_Observer_.Views.UserControls
 {
     /// <summary>
-    /// Interaction logic for HomeUC.xaml
+    /// Interaction logic for YoutuberUC.xaml
     /// </summary>
-    public partial class HomeUC : UserControl
+    public partial class YoutuberUC : UserControl
     {
-        public HomeUC()
+        public YoutuberUC()
         {
             InitializeComponent();
         }
-
-        
     }
 }
