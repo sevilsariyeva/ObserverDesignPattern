@@ -12,6 +12,7 @@ namespace Youtube_Observer_.ViewModels
     {
         public RelayCommand SignInClickCommand { get; set; }
         public RelayCommand SignUpClickCommand { get; set; }
+        public RelayCommand LogoClickCommand { get; set; }
         public ChoiceUCViewModel()
         {
             SignInClickCommand = new RelayCommand((obj) =>
@@ -26,6 +27,14 @@ namespace Youtube_Observer_.ViewModels
             {
                 var uc = new SignUpUC();
                 var vm = new SignUpUCViewModel();
+                uc.DataContext = vm;
+                App.MyGrid.Children.RemoveAt(0);
+                App.MyGrid.Children.Add(uc);
+            });
+            LogoClickCommand = new RelayCommand((obj) =>
+            {
+                var uc = new HomeUC();
+                var vm = new HomeUCViewModel();
                 uc.DataContext = vm;
                 App.MyGrid.Children.RemoveAt(0);
                 App.MyGrid.Children.Add(uc);

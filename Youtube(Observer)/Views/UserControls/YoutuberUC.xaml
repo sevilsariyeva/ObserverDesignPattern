@@ -8,29 +8,29 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="37*"/>
+        </Grid.RowDefinitions>
         <Grid.Background>
             <LinearGradientBrush>
                 <GradientStop Color="DarkSlateGray" Offset="0"></GradientStop>
                 <GradientStop Color="Black" Offset="1"></GradientStop>
             </LinearGradientBrush>
         </Grid.Background>
-        <Button Style="{StaticResource allButtons}" BorderThickness="0" Background="Transparent" Width="150" Height="70" Margin="-32,-6,682,386">
+        <Button Style="{StaticResource allButtons}" Command="{Binding LogoClickCommand}" BorderThickness="0" Background="Transparent" Width="150" Height="70" Margin="-32,-6,682,53">
             <Image Stretch="Fill" Source="/Icons/youtube.png"></Image>
         </Button>
-        <TextBox Text="Search..." Style="{StaticResource searchTextBox}" Width="500" Height="50" Margin="272,10,28,390"></TextBox>
-        <Button Style="{StaticResource searchButton}" Width="80" Height="50" Margin="692,10,28,390">
+        <TextBox Text="Search..." Style="{StaticResource searchTextBox}" Width="500" Height="50" Margin="272,10,28,57"></TextBox>
+        <Button Style="{StaticResource searchButton}" Width="80" Height="50" Margin="692,10,28,57">
             <Image Margin="0,-10,5,0" Stretch="UniformToFill" Source="/Icons/magnifier.png"></Image>
         </Button>
-        <Image Width="30" Height="30" Source="/Icons/home.png" Margin="-62,102,772,318"></Image>
-        <Image Width="30" Height="30" Source="/Icons/videos.png" Margin="-62,187,770,233"></Image>
-        <Button Style="{StaticResource allButtons}" FontSize="20" FontWeight="DemiBold" Width="150" Height="50" Content="Home" Margin="-37,94,687,306"></Button>
-        <Button Style="{StaticResource allButtons}" FontSize="20" FontWeight="DemiBold" Width="150" Height="50" Content="Videos" Margin="-54,175,661,225"></Button>
-        <Button Background="Transparent" Style="{StaticResource allButtons}" FontSize="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="ExtraBlack" Width="80" Height="80" Margin="182,69,518,281">
+        <Button Background="Transparent" Style="{StaticResource allButtons}" FontSize="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="ExtraBlack" Width="80" Height="80" Margin="192,79,528,291" Grid.RowSpan="2">
             <Image Margin="-9,-6,-9,-4" Width="84" Height="84" Stretch="UniformToFill" Source="/Icons/user.png"></Image>
         </Button>
-        <Label Foreground="White" FontSize="30" Height="50" Content="{Binding Youtuber.Name}" Margin="384,94,356,306"></Label>
-        <Label Foreground="White" FontSize="30" Height="50" Content="{Binding Youtuber.Surname}" Margin="458,94,142,306"></Label>
-        <ListBox BorderThickness="0" Visibility="{Binding ListBoxVisibility}" x:Name="listbox" ItemsSource="{Binding Youtuber.Videos}" Background="Transparent" Height="300" Margin="196,175,28,-25">
+        <Label Foreground="White" FontSize="30" Height="50" Content="{Binding Youtuber.Name}" Margin="384,94,356,306" Grid.RowSpan="2"></Label>
+        <Label Foreground="White" FontSize="30" Height="50" Content="{Binding Youtuber.Surname}" Margin="458,94,142,306" Grid.RowSpan="2"></Label>
+        <ListBox BorderThickness="0" x:Name="listbox" ItemsSource="{Binding Youtuber.Videos}" Background="Transparent" Height="300" Margin="196,58,28,-25" Grid.Row="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -103,23 +103,10 @@
                                     </Trigger>
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
-
                         </Setter.Value>
                     </Setter>
                 </Style>
             </ListBox.ItemContainerStyle>
-            <i1:Interaction.Triggers>
-                <i1:EventTrigger EventName="SelectionChanged">
-                    <i1:InvokeCommandAction Command="{Binding MovieClickCommand}" 
-                                           CommandParameter="{Binding ElementName=listbox,Path=SelectedItem}"></i1:InvokeCommandAction>
-
-                </i1:EventTrigger>
-
-            </i1:Interaction.Triggers>
         </ListBox>
-        <StackPanel Visibility="{Binding WebViewVisibility}" Margin="196,175,28,-25">
-            <wv2:WebView2 Name="webview" Width="550" HorizontalAlignment="Left" Height="300" Source="{Binding Youtuber.Videos.Link}"></wv2:WebView2>
-        </StackPanel>
-        <!--<Label Background="Transparent" Height="400" Content="{Binding MyContent}" Margin="182,187,28,-137"/>-->
     </Grid>
 </UserControl>

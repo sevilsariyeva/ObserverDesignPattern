@@ -6,7 +6,92 @@
              xmlns:local="clr-namespace:Youtube_Observer_.Views.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Margin="0,0,0,287">
-        <Label Width="200" Height="150" Margin="46,6,554,7"></Label>
+    <Grid>
+        <Button Style="{StaticResource allButtons}" Command="{Binding LogoClickCommand}" BorderThickness="0" Background="Transparent" Width="150" Height="70" Margin="0,0,650,380">
+            <Image Stretch="Fill" Source="/Icons/youtube.png"></Image>
+        </Button>
+        <Button Background="Transparent" Style="{StaticResource allButtons}" FontSize="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="ExtraBlack" Width="80" Height="80" Margin="192,0,528,250" Grid.RowSpan="2">
+            <Image Margin="-9,-6,-9,-4" Width="84" Height="84" Stretch="UniformToFill" Source="/Icons/user.png"></Image>
+        </Button>
+        <Label Foreground="White" FontSize="30" Height="50" Content="{Binding Subscriber.Name}" Margin="384,77,356,323"/>
+        <Label Foreground="White" FontSize="30" Height="50" Content="{Binding Subscriber.Surname}" Margin="458,77,142,323"/>
+        <ListBox ItemsSource="{Binding Subscribers.Youtubers}" BorderThickness="0" Background="Transparent" Width="700" Height="300" Margin="50,145,50,5">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Button Background="Transparent" BorderThickness="0" Cursor="Hand" HorizontalAlignment="Left" Width="130" Height="100">
+                            <Image Stretch="Fill" Source="{Binding CoverPhoto}"></Image>
+                        </Button>
+                        <Label Foreground="White" FontSize="20" Margin="150,0,0,0" Content="{Binding Name}"></Label>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListBoxItem">
+                                <Border BorderThickness="{TemplateBinding Border.BorderThickness}"
+                  Padding="{TemplateBinding Control.Padding}"
+                  BorderBrush="{TemplateBinding Border.BorderBrush}"
+                  Background="{TemplateBinding Panel.Background}"
+                  Name="Bd"
+                  SnapsToDevicePixels="True">
+                                    <ContentPresenter Content="{TemplateBinding ContentControl.Content}"
+                               ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}"
+                               ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}"
+                               HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
+                               VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}"
+                               SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+
+                                </Border>
+
+                                <ControlTemplate.Triggers>
+                                    <MultiTrigger>
+                                        <MultiTrigger.Conditions>
+                                            <Condition Property="Selector.IsSelectionActive" Value="False"/>
+                                            <Condition Property="Selector.IsSelected" Value="True"/>
+                                        </MultiTrigger.Conditions>
+                                        <Setter Property="Panel.Background" TargetName="Bd" Value="Transparent"/>
+                                        <Setter Property="Border.BorderBrush" TargetName="Bd">
+                                            <Setter.Value>
+                                                <SolidColorBrush>Transparent</SolidColorBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </MultiTrigger>
+                                    <MultiTrigger>
+                                        <MultiTrigger.Conditions>
+                                            <Condition Property="Selector.IsSelectionActive" Value="True"/>
+                                            <Condition Property="Selector.IsSelected" Value="True"/>
+                                        </MultiTrigger.Conditions>
+                                        <Setter Property="Panel.Background" TargetName="Bd" Value="Transparent"/>
+                                        <Setter Property="Border.BorderBrush" TargetName="Bd">
+                                            <Setter.Value>
+                                                <SolidColorBrush>Transparent</SolidColorBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </MultiTrigger>
+                                    <Trigger Property="UIElement.IsMouseOver" Value="True">
+                                        <Setter Property="Panel.Background" TargetName="Bd" Value="Transparent"/>
+                                        <Setter Property="Border.BorderBrush" TargetName="Bd">
+                                            <Setter.Value>
+                                                <SolidColorBrush>Transparent</SolidColorBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                    <Trigger Property="UIElement.IsEnabled" Value="False">
+                                        <Setter Property="TextElement.Foreground" TargetName="Bd">
+                                            <Setter.Value>
+                                                <DynamicResource ResourceKey="{x:Static SystemColors.GrayTextBrushKey}" />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
     </Grid>
 </UserControl>

@@ -25,7 +25,17 @@ namespace Youtube_Observer_.Repositories
                         Name="Aysel",
                         Surname="Mammadli",
                         Email="ayselmammadli@gmail.com",
-                        Password="Aysel123"
+                        Password="Aysel123",
+                        Youtubers=new List<Youtuber>
+                        {
+                            new Youtuber
+                            {
+                                Id=1,
+                                Name="Sevil",
+                                Surname="Sariyeva",
+                                Email="sevilsariyeva@gmail.com"
+                            }
+                        }
                     }
                 };
                 FileHelper.WriteSubscribers(Subscribers);

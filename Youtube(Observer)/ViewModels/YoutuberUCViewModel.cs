@@ -7,28 +7,13 @@ using System.Threading.Tasks;
 using System.Windows;
 using Youtube_Observer_.Commands;
 using Youtube_Observer_.Models;
+using Youtube_Observer_.Views.UserControls;
 
 namespace Youtube_Observer_.ViewModels
 {
     public class YoutuberUCViewModel : BaseViewModel
     {
-        private Visibility webViewVisibility;
-
-        public Visibility WebViewVisibility
-        {
-            get { return webViewVisibility; }
-            set { webViewVisibility = value; OnPropertyChanged(); }
-        }
-        private Visibility listboxVisibility;
-
-        public Visibility ListBoxVisibility
-        {
-            get { return listboxVisibility; }
-            set { listboxVisibility = value;OnPropertyChanged(); }
-        }
-
-        public RelayCommand MovieClickCommand { get; set; }
-
+        public RelayCommand LogoClickCommand { get; set; }
         private Youtuber youtuber;
 
         public Youtuber Youtuber
@@ -38,13 +23,14 @@ namespace Youtube_Observer_.ViewModels
         }
         public YoutuberUCViewModel()
         {
-            WebViewVisibility = Visibility.Hidden;
-            MovieClickCommand = new RelayCommand((obj) =>
+            LogoClickCommand = new RelayCommand((obj) =>
             {
-                WebViewVisibility = Visibility.Visible;
-                ListBoxVisibility = Visibility.Hidden;
+                var uc = new HomeUC();
+                var vm = new HomeUCViewModel();
+                uc.DataContext = vm;
+                App.MyGrid.Children.RemoveAt(0);
+                App.MyGrid.Children.Add(uc);
             });
-
         }
     }
 }

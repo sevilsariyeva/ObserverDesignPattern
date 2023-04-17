@@ -13,7 +13,7 @@
                 <GradientStop Color="Black" Offset="1"></GradientStop>
             </LinearGradientBrush>
         </Grid.Background>
-        <Button Style="{StaticResource allButtons}" BorderThickness="0" Background="Transparent" Width="350" Height="150" Margin="0,0,0,150">
+        <Button Command="{Binding LogoClickCommand}" Style="{StaticResource allButtons}" BorderThickness="0" Background="Transparent" Width="350" Height="150" Margin="0,0,0,150">
             <Image Stretch="Fill" Source="/Icons/youtube.png"></Image>
         </Button>
         <Label Width="70" Height="30" Foreground="White" FontWeight="DemiBold" FontSize="18" Content="Name" Margin="88,218,642,202"></Label>

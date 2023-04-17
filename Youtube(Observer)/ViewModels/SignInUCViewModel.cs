@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Youtube_Observer_.Commands;
 using Youtube_Observer_.Models;
 using Youtube_Observer_.Views.UserControls;
@@ -35,6 +36,7 @@ namespace Youtube_Observer_.ViewModels
 
         public RelayCommand SubmitClickCommand { get; set; }
         public RelayCommand SignUpClickCommand { get; set; }
+        public RelayCommand LogoClickCommand { get; set; }
         public SignInUCViewModel()
         {
             SignUpClickCommand = new RelayCommand((obj) =>
@@ -47,19 +49,56 @@ namespace Youtube_Observer_.ViewModels
             });
             SubmitClickCommand = new RelayCommand((obj) =>
             {
-                foreach (var item in App.YoutubeRepo.Youtubers)
+                while (true)
                 {
-                    if (item.Email == Email && item.Password == Password)
+                    foreach (var item in App.YoutubeRepo.Youtubers)
                     {
-                        var uc = new YoutuberUC();
-                        var vm = new YoutuberUCViewModel();
-                        vm.Youtuber = item;
-                        uc.DataContext = vm;
-                        App.MyGrid.Children.RemoveAt(0);
-                        App.MyGrid.Children.Add(uc);
+                        if (item.Email == Email && item.Password == Password)
+                        {
+                            var uc = new YoutuberUC();
+                            var vm = new YoutuberUCViewModel();
+                            vm.Youtuber = item;
+                            uc.DataContext = vm;
+                            App.MyGrid.Children.RemoveAt(0);
+                            App.MyGrid.Children.Add(uc);
+                            goto TheEnd;
+                        }
+                        else if(item.Email==Email && item.Password != Password)
+                        {
+                            MessageBox.Show("Password is wrong!");
+                            goto TheEnd;
+                        }
                     }
+                    foreach (var item in App.SubscriberRepo.Subscribers)
+                    {
+                        if (item.Email == Email && item.Password == Password)
+                        {
+                            var uc = new SubscriberUC();
+                            var vm = new SubscriberUCViewModel();
+                            vm.Subscriber = item;
+                            uc.DataContext = vm;
+                            App.MyGrid.Children.RemoveAt(0);
+                            App.MyGrid.Children.Add(uc);
+                            goto TheEnd;
+                        }
+                        else if (item.Email == Email && item.Password != Password)
+                        {
+                            MessageBox.Show("Password is wrong!");
+                            goto TheEnd;
+                        }
+                    }
+                    MessageBox.Show("This user does not exist");
+                    goto TheEnd;
                 }
-                
+            TheEnd:;
+            });
+            LogoClickCommand = new RelayCommand((obj) =>
+            {
+                var uc = new HomeUC();
+                var vm = new HomeUCViewModel();
+                uc.DataContext = vm;
+                App.MyGrid.Children.RemoveAt(0);
+                App.MyGrid.Children.Add(uc);
             });
         }
     }

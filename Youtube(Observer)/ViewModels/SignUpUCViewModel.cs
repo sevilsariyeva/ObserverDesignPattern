@@ -41,12 +41,21 @@ namespace Youtube_Observer_.ViewModels
         }
 
         public RelayCommand SignInClickCommand { get; set; }
+        public RelayCommand LogoClickCommand { get; set; }
         public SignUpUCViewModel()
         {
             SignInClickCommand = new RelayCommand((obj) =>
             {
                 var uc = new SignInUC();
                 var vm = new SignInUCViewModel();
+                uc.DataContext = vm;
+                App.MyGrid.Children.RemoveAt(0);
+                App.MyGrid.Children.Add(uc);
+            });
+            LogoClickCommand = new RelayCommand((obj) =>
+            {
+                var uc = new HomeUC();
+                var vm = new HomeUCViewModel();
                 uc.DataContext = vm;
                 App.MyGrid.Children.RemoveAt(0);
                 App.MyGrid.Children.Add(uc);
