@@ -26,13 +26,6 @@ namespace Youtube_Observer_.ViewModels
             get { return password; }
             set { password = value; OnPropertyChanged(); }
         }
-        //private Youtuber youtuber;
-
-        //public Youtuber Youtuber
-        //{
-        //    get { return youtuber; }
-        //    set { youtuber = value; OnPropertyChanged(); }
-        //}
 
         public RelayCommand SubmitClickCommand { get; set; }
         public RelayCommand SignUpClickCommand { get; set; }
@@ -58,6 +51,7 @@ namespace Youtube_Observer_.ViewModels
                             var uc = new YoutuberUC();
                             var vm = new YoutuberUCViewModel();
                             vm.Youtuber = item;
+                            vm.Youtuber.Subscribers = item.Subscribers;
                             uc.DataContext = vm;
                             App.MyGrid.Children.RemoveAt(0);
                             App.MyGrid.Children.Add(uc);
@@ -76,6 +70,7 @@ namespace Youtube_Observer_.ViewModels
                             var uc = new SubscriberUC();
                             var vm = new SubscriberUCViewModel();
                             vm.Subscriber = item;
+                            vm.Youtubers = item.Youtubers;
                             uc.DataContext = vm;
                             App.MyGrid.Children.RemoveAt(0);
                             App.MyGrid.Children.Add(uc);

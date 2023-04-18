@@ -26,14 +26,90 @@ namespace Youtube_Observer_.Repositories
                         Surname="Mammadli",
                         Email="ayselmammadli@gmail.com",
                         Password="Aysel123",
-                        Youtubers=new List<Youtuber>
-                        {
+                        Youtubers=new List<Youtuber>{
                             new Youtuber
                             {
-                                Id=1,
-                                Name="Sevil",
-                                Surname="Sariyeva",
-                                Email="sevilsariyeva@gmail.com"
+                                Id = 1,
+                        Name="Sevil",
+                        Surname="Sariyeva",
+                        Email="sevilsariyeva@gmail.com",
+                        Password="Sevil123",
+                            }
+                        }
+
+                    },
+                     new Subscriber
+                    {
+                        Id = 2,
+                        Name="Nargiz",
+                        Surname="Mammadli",
+                        Email="nargizmammadli@gmail.com",
+                        Password="Nargiz123",
+                        Youtubers=new List<Youtuber>{
+                            new Youtuber
+                            {
+                                Id = 1,
+                        Name="Sevil",
+                        Surname="Sariyeva",
+                        Email="sevilsariyeva@gmail.com",
+                        Password="Sevil123",
+                            }
+                        }
+
+                    },
+                      new Subscriber
+                    {
+                        Id =3,
+                        Name="Rana",
+                        Surname="Aliyeva",
+                        Email="ranaaliyeva@gmail.com",
+                        Password="Rana123",
+                        Youtubers=new List<Youtuber>{
+                            new Youtuber
+                            {
+                                Id = 1,
+                        Name="Sevil",
+                        Surname="Sariyeva",
+                        Email="sevilsariyeva@gmail.com",
+                        Password="Sevil123",
+                            }
+                        }
+
+                    },
+                       new Subscriber
+                    {
+                        Id = 4,
+                        Name="Gunay",
+                        Surname="Asadli",
+                        Email="gunayasadli@gmail.com",
+                        Password="Gunay123",
+                        Youtubers=new List<Youtuber>{
+                           new Youtuber
+                            {
+                                Id = 1,
+                        Name="Sevil",
+                        Surname="Sariyeva",
+                        Email="sevilsariyeva@gmail.com",
+                        Password="Sevil123",
+                            }
+                        }
+
+                    },
+                        new Subscriber
+                    {
+                        Id = 5,
+                        Name="Gunel",
+                        Surname="Mammadli",
+                        Email="gunelmammadli@gmail.com",
+                        Password="Gunel123",
+                        Youtubers=new List<Youtuber>{
+                            new Youtuber
+                            {
+                                Id = 1,
+                        Name="Sevil",
+                        Surname="Sariyeva",
+                        Email="sevilsariyeva@gmail.com",
+                        Password="Sevil123",
                             }
                         }
                     }

@@ -8,14 +8,14 @@ using System.Windows.Controls;
 using Youtube_Observer_.Commands;
 using Youtube_Observer_.Models;
 using Youtube_Observer_.Views.UserControls;
+using static Youtube_Observer_.ViewModels.YoutuberUCViewModel;
 
 namespace Youtube_Observer_.ViewModels
 {
-    public class SubscriberUCViewModel : BaseViewModel
+    public class AllYoutubersUCViewModel : BaseViewModel
     {
-        public RelayCommand ExploreClickCommand { get; set; }
-        public RelayCommand UnsubscribeClickCommand { get; set; }
-        public RelayCommand LogoClickCommand { get; set; }
+        public RelayCommand SubscribeClickCommand { get; set; }
+        public RelayCommand BackClickCommand { get; set; }
         private Subscriber subscriber;
 
         public Subscriber Subscriber
@@ -30,29 +30,26 @@ namespace Youtube_Observer_.ViewModels
             get { return youtuber; }
             set { youtuber = value; OnPropertyChanged(); }
         }
-        private List<Youtuber> youtubers = new List<Youtuber>();
+
+        private List<Youtuber> allyoutubers;
+
+        public List<Youtuber> AllYoutubers
+        {
+            get { return allyoutubers; }
+            set { allyoutubers = value; OnPropertyChanged(); }
+        }
+        private List<Youtuber> youtubers;
 
         public List<Youtuber> Youtubers
         {
             get { return youtubers; }
             set { youtubers = value; OnPropertyChanged(); }
         }
-
         bool IsOkay = true;
-        public SubscriberUCViewModel()
+        public AllYoutubersUCViewModel()
         {
-            ExploreClickCommand = new RelayCommand((obj) =>
-            {
-                var uc = new AllYoutubersUC();
-                var vm = new AllYoutubersUCViewModel();
-                vm.Subscriber = Subscriber;
-                vm.Youtubers = Youtubers;
-                uc.DataContext = vm;
-                App.MyGrid.Children.RemoveAt(0);
-                App.MyGrid.Children.Add(uc);
-                ;
-            });
-            UnsubscribeClickCommand = new RelayCommand((obj) =>
+            AllYoutubers = App.YoutubeRepo.Youtubers;
+            SubscribeClickCommand = new RelayCommand((obj) =>
             {
                 var grid = obj as Grid;
                 foreach (var child in grid.Children)
@@ -76,15 +73,17 @@ namespace Youtube_Observer_.ViewModels
                 }
                 if (IsOkay)
                 {
-                    Youtuber.Remove(subscriber);
-                    Youtubers.Remove(Youtuber);
-                    MessageBox.Show("You have been unsubscribed!");
+                    Youtuber.Add(subscriber);
+                    Youtubers.Add(Youtuber);
+                    MessageBox.Show("You have been subscribed!");
                 }
             });
-            LogoClickCommand = new RelayCommand((obj) =>
+            BackClickCommand = new RelayCommand((obj) =>
             {
-                var uc = new HomeUC();
-                var vm = new HomeUCViewModel();
+                var uc = new SubscriberUC();
+                var vm = new SubscriberUCViewModel();
+                vm.Subscriber = Subscriber;
+                vm.Youtubers = Youtubers;
                 uc.DataContext = vm;
                 App.MyGrid.Children.RemoveAt(0);
                 App.MyGrid.Children.Add(uc);

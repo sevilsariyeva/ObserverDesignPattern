@@ -27,6 +27,133 @@ namespace Youtube_Observer_.Repositories
                         Surname="Sariyeva",
                         Email="sevilsariyeva@gmail.com",
                         Password="Sevil123",
+                        Subscribers=new List<Subscriber>
+                        {
+                            new Subscriber
+                            {
+                                Id = 1,
+                        Name="Aysel",
+                        Surname="Mammadli",
+                        Email="ayselmammadli@gmail.com",
+                        Password="Aysel123"
+                            }
+                        },
+                        Videos=new List<Video>
+                        {
+                            new Video
+                            {
+                                Id=1,
+                                Name="WPF Cinema Management (ParkCinema)",
+                                CoverPhoto="/Images/prestij.jpg",
+                                Link="https://youtu.be/28dC547iMAc"
+                            }
+                        }
+                    },
+                    new Youtuber
+                    {
+                        Id = 2,
+                        Name="Narmin",
+                        Surname="Aliyeva",
+                        Email="narminaliyeva@gmail.com",
+                        Password="Narmin123",
+                        Subscribers=new List<Subscriber>
+                        {
+                            new Subscriber
+                            {
+                                Id = 1,
+                        Name="Aysel",
+                        Surname="Mammadli",
+                        Email="ayselmammadli@gmail.com",
+                        Password="Aysel123"
+                            }
+                        },
+                        Videos=new List<Video>
+                        {
+                            new Video
+                            {
+                                Id=1,
+                                Name="WPF Cinema Management (ParkCinema)",
+                                CoverPhoto="/Images/prestij.jpg",
+                                Link="https://youtu.be/28dC547iMAc"
+                            }
+                        }
+                    },
+                    new Youtuber
+                    {
+                        Id = 3,
+                        Name="Aydan",
+                        Surname="Aliyeva",
+                        Email="aydanaliyeva@gmail.com",
+                        Password="Aydan123",
+                        Subscribers=new List<Subscriber>
+                        {
+                            new Subscriber
+                            {
+                                Id = 1,
+                        Name="Aysel",
+                        Surname="Mammadli",
+                        Email="ayselmammadli@gmail.com",
+                        Password="Aysel123"
+                            }
+                        },
+                        Videos=new List<Video>
+                        {
+                            new Video
+                            {
+                                Id=1,
+                                Name="WPF Cinema Management (ParkCinema)",
+                                CoverPhoto="/Images/prestij.jpg",
+                                Link="https://youtu.be/28dC547iMAc"
+                            }
+                        }
+                    },
+                    new Youtuber
+                    {
+                        Id = 4,
+                        Name="Farhad",
+                        Surname="Mammadov",
+                        Email="farhadmammadov@gmail.com",
+                        Password="Farhad123",
+                        Subscribers=new List<Subscriber>
+                        {
+                           new Subscriber
+                            {
+                                Id = 1,
+                        Name="Aysel",
+                        Surname="Mammadli",
+                        Email="ayselmammadli@gmail.com",
+                        Password="Aysel123"
+                            }
+                        },
+                        Videos=new List<Video>
+                        {
+                            new Video
+                            {
+                                Id=1,
+                                Name="WPF Cinema Management (ParkCinema)",
+                                CoverPhoto="/Images/prestij.jpg",
+                                Link="https://youtu.be/28dC547iMAc"
+                            }
+                        }
+                    },
+                     new Youtuber
+                    {
+                        Id = 5,
+                        Name="Kamran",
+                        Surname="Aliyev",
+                        Email="kamranaliyev@gmail.com",
+                        Password="Kamran123",
+                        Subscribers=new List<Subscriber>
+                        {
+                           new Subscriber
+                            {
+                                Id = 1,
+                        Name="Aysel",
+                        Surname="Mammadli",
+                        Email="ayselmammadli@gmail.com",
+                        Password="Aysel123"
+                            }
+                        },
                         Videos=new List<Video>
                         {
                             new Video
@@ -43,7 +170,7 @@ namespace Youtube_Observer_.Repositories
             }
             else
             {
-                Youtubers=FileHelper.ReadYoutubers();
+                Youtubers = FileHelper.ReadYoutubers();
             }
         }
     }

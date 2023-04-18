@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Youtube_Observer_.Commands;
+using Youtube_Observer_.Models;
 using Youtube_Observer_.Views.UserControls;
 
 namespace Youtube_Observer_.ViewModels
@@ -18,6 +19,7 @@ namespace Youtube_Observer_.ViewModels
             {
                 var uc = new ChoiceUC();
                 var vm = new ChoiceUCViewModel();
+                vm.Youtuber = new Youtuber();
                 uc.DataContext = vm;
                 App.MyGrid.Children.RemoveAt(0);
                 App.MyGrid.Children.Add(uc);
@@ -26,6 +28,7 @@ namespace Youtube_Observer_.ViewModels
             {
                 var uc = new ChoiceUC();
                 var vm = new ChoiceUCViewModel();
+                vm.Subscriber = new Subscriber();
                 uc.DataContext = vm;
                 App.MyGrid.Children.RemoveAt(0);
                 App.MyGrid.Children.Add(uc);

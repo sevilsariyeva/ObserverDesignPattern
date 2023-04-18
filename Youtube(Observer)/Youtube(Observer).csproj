@@ -83,6 +83,7 @@
     <Compile Include="Models\Youtuber.cs" />
     <Compile Include="Repositories\SubscriberRepository.cs" />
     <Compile Include="Repositories\YoutuberRepository.cs" />
+    <Compile Include="ViewModels\AllYoutubersUCViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\ChoiceUCViewModel.cs" />
     <Compile Include="ViewModels\HomeUCViewModel.cs" />
@@ -91,6 +92,9 @@
     <Compile Include="ViewModels\SignUpUCViewModel.cs" />
     <Compile Include="ViewModels\SubscriberUCViewModel.cs" />
     <Compile Include="ViewModels\YoutuberUCViewModel.cs" />
+    <Compile Include="Views\UserControls\AllYoutubersUC.xaml.cs">
+      <DependentUpon>AllYoutubersUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\ChoiceUC.xaml.cs">
       <DependentUpon>ChoiceUC.xaml</DependentUpon>
     </Compile>
@@ -125,6 +129,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\UserControls\AllYoutubersUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\UserControls\ChoiceUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
